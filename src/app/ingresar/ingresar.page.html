@@ -1,12 +1,18 @@
 <app-header></app-header>
 
-<ion-content class="ion-padding" [fullscreen]="true">
+<ion-content class="ion-padding">
   <form [formGroup]="formulariousuario">
-    <ion-input formControlName="nombre" label="Ingrese Nombre" label-placement="floating" fill="outline" placeholder="Nombre"></ion-input> <br>
-    <ion-input formControlName="Contraseña" label="Ingrese Contraseña" label-placement="floating" fill="outline" placeholder="Contraseña"></ion-input><br>
-    <!-- <ion-button (click)="grabarEmpleado()">Ingresar</ion-button> -->
-    <!-- <ion-button (click)="grabarEmpleado()">Restablecer Contraseña</ion-button> -->
+    <ion-item fill="outline">
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input placeholder="Nombre" formControlName="nombre"></ion-input>
+    </ion-item> <br>
+    <ion-item fill="outline">
+      <ion-label position="floating" >Contraseña</ion-label>
+      <ion-input placeholder="Contraseña" formControlName="contraseña"></ion-input>
+    </ion-item>
   </form>
+  <br>
+  <ion-button (click)="grabarAlumno()">Ingresar</ion-button> <ion-button routerLink="/restablecer">Recuperar</ion-button>
 </ion-content>
 
 <ion-footer>

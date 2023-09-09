@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class StateService {
 
   titulo:BehaviorSubject<string> = new BehaviorSubject('Ingreso de Alumno');
-
+  
   get getTitulo(){
     return this.titulo.asObservable();
   }
@@ -15,6 +15,15 @@ export class StateService {
   set setTitulo(titulo:string){
     this.titulo.next(titulo);
   }
+
+  nombre: BehaviorSubject<string> = new BehaviorSubject('');
+  get getNombre(){
+    return this.nombre.asObservable();
+  }
+  set setNombre(nombre:string){
+     this.nombre.next(nombre);
+  }
+
 
   constructor() { }
 }

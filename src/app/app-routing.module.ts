@@ -12,6 +12,14 @@ const routes: Routes = [
     redirectTo: 'ingresar',
     pathMatch: 'full'
   },
+  {
+    path: 'restablecer',
+    loadChildren: () => import('./restablecer/restablecer.module').then( m => m.RestablecerPageModule)
+  },
+   {
+     path: 'home',
+     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+   },
 ];
 
 @NgModule({

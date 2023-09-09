@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { StateService } from '../state/state.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-ingresar',
   templateUrl: './ingresar.page.html',
@@ -10,28 +11,24 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class IngresarPage implements OnInit {
   formulariousuario:FormGroup;
 
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder, private router:Router, private stateService:StateService) { 
     this.formulariousuario=this.fb.group({
       nombre:[""],
       contraseña:[""],
     })
   }
-
-  ngOnInit() {
+  ngOnInit(){
   }
 
-  grabarEmpleado(){
+  grabarAlumno(){
     console.log("Ingresando a la funcion")
     const Alumno={
       nombre:this.formulariousuario.get('nombre')?.value,
-      edad:this.formulariousuario.get('contraseña')?.value,
+      contraseña:this.formulariousuario.get('contraseña')?.value,
     }
-    // if(Alumno.edad >= 18) {
-
-    //   console.log(Alumno)
-    //   return
-    // }
-    // console.log("No es mayor de edad")
+    console.log(Alumno)
+    this.stateService.setNombre = Alumno.nombre
+    this.router.navigate(['home'])
   }
 
 }
