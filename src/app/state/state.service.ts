@@ -24,6 +24,13 @@ export class StateService {
      this.nombre.next(nombre);
   }
 
+  private  isLoged:BehaviorSubject<boolean> = new BehaviorSubject <boolean>(false)
+  usersIsLogged(){
+    return this.usersIsLogged.asObvservable();
+  }
+  setIsLoggin(){
+    this.isLoged.next(true);
+  }
 
   constructor() { }
 }

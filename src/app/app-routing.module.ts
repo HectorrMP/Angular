@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { TestGuard } from './guards/test.guard';
 
 
 const routes: Routes = [
@@ -20,6 +21,16 @@ const routes: Routes = [
      path: 'home',
      loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
    },
+  {
+    path: 'publica',
+    loadChildren: () => import('./publica/publica.module').then( m => m.PublicaPageModule)
+  },
+  {
+    path: 'privada',
+    canActivate: [TestGuard],
+    loadChildren: () => import('./privada/privada.module').then( m => m.PrivadaPageModule)
+  },
+
 ];
 
 @NgModule({
