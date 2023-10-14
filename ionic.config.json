@@ -1,0 +1,7 @@
+{
+  "name": "Preparacion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
