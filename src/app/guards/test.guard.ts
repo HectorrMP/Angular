@@ -13,8 +13,8 @@ export class TestGuard implements CanActivate {
   ) {}
   canActivate(): boolean {
     let isLogged:boolean = false;
-    this.stateService.isLoged().subscribe(
-      (logged) => {
+    this.stateService.isLogged().subscribe(
+      (logged:boolean) => {
         isLogged = logged;
       }
     );
