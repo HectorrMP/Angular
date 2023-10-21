@@ -36,6 +36,11 @@ export class IngresarPage implements OnInit {
     this.stateService.setNombre = Alumno.nombre
     this.router.navigate(['/home'])
   }
+
   validarAlumno(){
+    this.usu.getisLogged().subscribe((all:any)=>{
+      console.log(all);
+      this.usu = all.users;
+    });
   }
 }

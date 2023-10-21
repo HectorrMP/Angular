@@ -14,14 +14,14 @@ export class TestGuard implements CanActivate {
     console.log(router);
 
     let isLogged = {
-      authenticated: false
+      authenticated: true
     };
 
-    if(!isLogged.authenticated){
+    if(isLogged.authenticated){
       this.router.navigate(['/home']);
-      return false;
+      return true;
     }
-    return true;
+    return false;
   }
 }
 //
