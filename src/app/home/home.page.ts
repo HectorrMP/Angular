@@ -1,19 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { StateService } from '../state/state.service';
 import { Router } from '@angular/router';
+import { ApiService } from '../state/api.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
   nombre!: string;
-  constructor(private router:Router, private stateService:StateService) {
-
-  this.stateService.getNombre.subscribe((Alumno)=>{
-    debugger;
+  usuarios!: any;
+  constructor(private router:Router, private stateService:StateService, private usuario:ApiService) {
+    this.stateService.getNombre.subscribe((Alumno)=>{
+    
     this.nombre = Alumno;
-  })
-
-
-}}
+    });
+    // this.usuario.getUsers().subscribe((all)=>{
+      
+    //   this.usuarios = all;
+    // });
+  }; 
+  ngOnInit(){
+    this.usuario.getUsers().subscribe((all)=>{
+      console.log(all);
+      this.usuarios = all.users;
+    });
+    
+  }
+}

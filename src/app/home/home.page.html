@@ -3,3 +3,9 @@
     <ion-title>Bienvenido {{nombre}} </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  
+  <div *ngFor="let user of usuarios">
+    <p>{{user.firstName}}</p>
+  </div>
+</ion-content>

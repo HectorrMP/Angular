@@ -23,11 +23,11 @@ export class StateService {
      this.nombre.next(nombre);
   }
   //otro si
-  public isLogged:BehaviorSubject<any> = new BehaviorSubject <any>(false)
+  public isLogged:BehaviorSubject<boolean> = new BehaviorSubject <boolean>(false)
   getisLogged(){
     return this.isLogged.asObservable();
   }
-  set setisLogged(dataisLogged:any){
+  set setisLogged(dataisLogged:boolean){
     this.isLogged.next(dataisLogged);
   }
 

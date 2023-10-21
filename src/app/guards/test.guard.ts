@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CanActivate, Router} from '@angular/router';
 import { StateService } from '../state/state.service';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class TestGuard implements CanActivate {
   ) {}
   canActivate(): boolean {
     let isLogged:boolean = false;
-    this.stateService.isLogged().subscribe(
+    this.stateService.getisLogged().subscribe(
       (logged:boolean) => {
         isLogged = logged;
       }
