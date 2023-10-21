@@ -27,8 +27,8 @@ export class StateService {
   getisLogged(){
     return this.isLoged.asObservable();
   }
-  set setisLoggin(dataisLogged:any){
-    this.isLoged.next(dataisLogged);
+  set setisLoged(dataisLoged:boolean){
+    this.isLoged.next(dataisLoged);
   }
 
   constructor() { }
