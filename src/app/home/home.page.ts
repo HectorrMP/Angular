@@ -16,16 +16,11 @@ export class HomePage implements OnInit{
     
     this.nombre = Alumno;
     });
-    // this.usuario.getUsers().subscribe((all)=>{
-      
-    //   this.usuarios = all;
-    // });
   }; 
   ngOnInit(){
     this.usuario.getUsers().subscribe((all)=>{
       console.log(all);
       this.usuarios = all.users;
     });
-    
   }
 }

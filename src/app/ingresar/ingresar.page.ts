@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { StateService } from '../state/state.service';
 import { Router } from '@angular/router';
+import { TestGuard } from "../guards/test.guard";
 @Component({
   selector: 'app-ingresar',
   templateUrl: './ingresar.page.html',
@@ -10,14 +11,19 @@ import { Router } from '@angular/router';
 
 export class IngresarPage implements OnInit {
   formulariousuario:FormGroup;
-
-  constructor(private fb:FormBuilder, private router:Router, private stateService:StateService) { 
+  usu!: any;
+  constructor(private fb:FormBuilder, private router:Router, private stateService:StateService, guard: TestGuard) { 
     this.formulariousuario=this.fb.group({
       nombre:[""],
       contraseña:[""],
     })
   }
   ngOnInit(){
+    // debugger;
+    // this.usu.getisLogged().subscribe(()=>{
+    //   //console.log();
+    //   this.usu = this.grabarAlumno;
+    // });
   }
 
   grabarAlumno(){
@@ -28,7 +34,8 @@ export class IngresarPage implements OnInit {
     }
     console.log(Alumno)
     this.stateService.setNombre = Alumno.nombre
-    this.router.navigate(['home'])
+    this.router.navigate(['/home'])
   }
-
+  validarAlumno(){
+  }
 }
