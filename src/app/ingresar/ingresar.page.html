@@ -11,8 +11,9 @@
       <ion-input placeholder="Contraseña" formControlName="contraseña" type="password"></ion-input>
     </ion-item>
   </form>
-  <br>
-  <ion-button (click)="grabarAlumno()" (click)="validarAlumno()">Ingresar</ion-button> 
-  <br>
-  <a routerLink="/restablecer">Recuperar Contraseña</a>
+  <div>
+    <ion-button color="dark" (click)="grabarAlumno()" (click)="llamarApi()">Ingresar</ion-button> 
+    <br>
+    <a routerLink="/restablecer">Recuperar Contraseña</a>
+    </div>
 </ion-content>

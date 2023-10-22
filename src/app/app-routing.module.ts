@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { TestGuard } from './guards/test.guard';
+import { ApiService } from './state/api.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'publica', pathMatch:'full'},
@@ -10,7 +11,8 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [TestGuard],
   },
   {
     path: 'restablecer',

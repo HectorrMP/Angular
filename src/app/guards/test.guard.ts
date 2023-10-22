@@ -10,18 +10,19 @@ export class TestGuard implements CanActivate {
     private router: Router,
     private stateService: StateService,
   ) {}
+  //Se activa el canActivate cuando el estado del userService cambia de valor
   canActivate(router: ActivatedRouteSnapshot): boolean {
     console.log(router);
-
-    let isLogged = {
-      authenticated: true
-    };
-
-    if(isLogged.authenticated){
-      this.router.navigate(['/home']);
-      return true;
+    let isLogged: Boolean=false;
+    this.stateService.userIsLogged().subscribe(
+      (logged) => {
+        isLogged = logged;
+      }
+    );
+    if(isLogged == false){
+    
+      this.router.navigate(['/ingresar']);
     }
-    return false;
+    return true;
   }
 }
-//
